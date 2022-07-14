@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addCustomerAction, removeCustomerAction } from './store/customerReducer'
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import { fetchCustomers } from "./asyncAction/customers";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Button variant="primary" onClick={() => addCash(Number(prompt()))}>Пополнить счет</Button>
         <Button variant="secondary" onClick={() => getCash(Number(prompt()))}>Снять со  счета</Button>
         <Button variant="success" onClick={() => addCustomer(prompt())}>Добавить клиента</Button>
+        <Button variant="success" onClick={() => dispatch(fetchCustomers())}>Добавить клиента</Button>
       </div>
       <div>
         {customers.length > 0 ?
